@@ -3,14 +3,6 @@ from datetime import date
 from crawlab import save_item
 from crawlabpy.utils import MEDIA_CONTENT_TYPE, notify_target, save_file
 
-# os.environ['CRAWLAB_TARGET_HOST'] = ''
-# os.environ['CRAWLAB_TARGET_PORT'] = ''
-# os.environ['CRAWLAB_TARGET_USERNAME'] = ''
-# os.environ['CRAWLAB_TARGET_PASSWORD'] = ''
-# os.environ['CRAWLAB_TARGET_PATH'] = ''
-# os.environ['CRAWLAB_TARGET_NOTIFY'] = ''
-# os.environ['CRAWLAB_DATA_SOURCE'] = ''
-
 os.environ['CRAWLAB_TARGET_HOST'] = ''
 os.environ['CRAWLAB_TARGET_PORT'] = ''
 os.environ['CRAWLAB_TARGET_USERNAME'] = ''
@@ -18,6 +10,7 @@ os.environ['CRAWLAB_TARGET_PASSWORD'] = ''
 os.environ['CRAWLAB_TARGET_PATH'] = ''
 os.environ['CRAWLAB_TARGET_NOTIFY'] = ''
 os.environ['CRAWLAB_DATA_SOURCE'] = ''
+
 
 if __name__ == '__main__':
     img_url_list = [
@@ -33,7 +26,11 @@ if __name__ == '__main__':
         img_name_list.append(img_name)
         save_file(img_name, img)
 
+    print(img_name_list)
+
     down_date = date.strftime(date.fromtimestamp(time.time()), '%Y-%m-%d %H:%M:%S')
+
+    print(down_date)
     
     result = {
         'body': 'test body',
@@ -59,6 +56,9 @@ if __name__ == '__main__':
         'viewcount': '',
         'writer': ''
     }
+
+    print(result)
+
     save_item(result)
     notify_target(MEDIA_CONTENT_TYPE, result, img_name_list)
 
