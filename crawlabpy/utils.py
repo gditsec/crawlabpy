@@ -2,14 +2,30 @@ import json
 import os
 import paramiko
 import requests
+from typing import Any
 from crawlabpy.datapool import get_target_config
 from crawlabpy.encoder import JSONEncoder
 
 
-def notify_target(item, files):
+MEDIA_CONTENT_TYPE = 0
+PART_CONTENT_TYPE = 1
+ARTICLE_TYPE = 2
+
+
+def notify_target(entity_type: int, item: Any, files: Any):
+    '''
+    Notify the crawler server that uploading file finished.
+
+    entity_type: MEDIA_CONTENT_TYPE | PART_CONTENT_TYPE | ARTICLE_TYPE
+
+    item: A json object including all the elements of a news.
+
+    files: A list including all the images and videos related to  current news.
+    '''
     json_encoder = JSONEncoder()
     target = get_target_config()
     response = requests.post(target.Notify, json={
+        'type': entity_type,
         'files': files,
         'record': json_encoder.encode(item)
     })
@@ -20,7 +36,7 @@ def notify_target(item, files):
 
 
 # 上传文件
-def save_file(name, data):
+def save_file(name: str, data: Any):
     # 获取配置
     target = get_target_config()
     local = '/tmp/{}'.format(name)

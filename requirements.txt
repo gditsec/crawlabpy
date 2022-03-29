@@ -1,0 +1,5 @@
+setuptools_rust
+paramiko
+requests
+bson
+crawlab-sdk
