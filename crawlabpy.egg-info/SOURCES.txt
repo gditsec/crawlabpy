@@ -6,4 +6,3 @@ crawlabpy.egg-info/PKG-INFO
 crawlabpy.egg-info/SOURCES.txt
 crawlabpy.egg-info/dependency_links.txt
 crawlabpy.egg-info/top_level.txt
-test/test_utils.py
