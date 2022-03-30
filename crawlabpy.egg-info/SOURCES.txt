@@ -2,6 +2,10 @@ LICENSE
 README.md
 pyproject.toml
 setup.cfg
+./crawlabpy/__init__.py
+./crawlabpy/datapool.py
+./crawlabpy/encoder.py
+./crawlabpy/utils.py
 crawlabpy.egg-info/PKG-INFO
 crawlabpy.egg-info/SOURCES.txt
 crawlabpy.egg-info/dependency_links.txt
